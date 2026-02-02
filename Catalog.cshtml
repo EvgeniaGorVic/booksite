@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+    <h1>Каталог книг</h1>
+    <div class="books-grid">
+        @foreach (var book in Model)
+        {
+            <div class="book-card">
+                <img src="@book.ImageUrl" />
+                <h3>@book.Title</h3>
+                <p>@book.Author</p>
+                <p>@book.Price ₽</p>
+                <a href="/Home/Book/@book.Id">Подробнее</a>
+            </div>
+        }
+    </div>

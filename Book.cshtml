@@ -1,0 +1,7 @@
+﻿@model BookStore.Models.Book
+<h1>@Model.Title</h1>
+<img src="@Model.ImageUrl" class="book-large" />
+<p>Автор: @Model.Author</p>
+<p>Цена: @Model.Price ₽</p>
+<p>@Model.Description</p>
+<button onclick="addToCart(@Model.Id)">Добавить в корзину</button>
