@@ -1,0 +1,9 @@
+# SQLite 
+*.db 
+*.db-shm 
+*.db-wal 
+ 
+# Visual Studio 
+.vs/ 
+bin/ 
+obj/ 

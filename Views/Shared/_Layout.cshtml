@@ -1,0 +1,193 @@
+﻿@using booksite.Models
+@using Microsoft.AspNetCore.Authentication
+@{
+    var isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
+    var userName = isAuthenticated ? Context.User.Identity.Name : null;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookSite</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Добавь эту строку для шрифта форм -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo-link">
+                <img src="~/images/logo.png" class="logo" alt="BookSite Logo" />
+                <span class="logo-text">BookSite</span>
+            </a>
+
+            <nav>
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="/Home/Catalog" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Каталог</span>
+                </a>
+                <a href="/Home/Contacts" class="nav-link">
+                    <i class="fas fa-address-book"></i>
+                    <span>Контакты</span>
+                </a>
+
+                <div class="user-menu">
+                    @if (isAuthenticated)
+                    {
+                        <a href="/Cart" class="nav-link cart-link">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            <span class="cart-counter">0</span>
+                        </a>
+
+                        <div class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="userDropdown">
+                                <i class="fas fa-user-circle"></i>
+                                <span>@userName</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="/Account/Logout">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Выйти
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <a href="/Account/Login" class="nav-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Вход / Регистрация</span>
+                        </a>
+                    }
+
+                    <button class="theme-toggle" title="Сменить тему">
+                        🌙
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>О нас</h3>
+                <p>BookSite - крупнейший онлайн-магазин книг в России. Мы предлагаем широкий выбор литературы всех жанров.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Быстрые ссылки</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/Home/Catalog">Каталог</a></li>
+                    <li><a href="/Home/Contacts">Контакты</a></li>
+                    <li><a href="/Account/Login">Вход / Регистрация</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><i class="fas fa-phone"></i> +7 (900) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@booksite.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, 1</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 BookSite. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Инициализация dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const dropdown = this.closest('.dropdown');
+                    dropdown.classList.toggle('show');
+                });
+            });
+
+            // Закрытие dropdown при клике вне
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            });
+
+            // Обновление счетчика корзины
+            updateCartCounter();
+        });
+
+        function updateCartCounter() {
+            fetch('/Cart/GetCount')
+                .then(response => response.json())
+                .then(data => {
+                    const counters = document.querySelectorAll('.cart-counter');
+                    counters.forEach(counter => {
+                        counter.textContent = data.count || 0;
+                        counter.style.display = data.count > 0 ? 'flex' : 'none';
+                    });
+                });
+        }
+
+        function showNotification(message, type = 'success') {
+            let container = document.querySelector('.notification-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'notification-container';
+                document.body.appendChild(container);
+            }
+
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        function addToCart(bookId) {
+            showNotification('В демо-режиме добавление в корзину временно недоступно', 'info');
+        }
+    </script>
+</body>
+</html>
