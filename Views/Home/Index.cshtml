@@ -27,7 +27,6 @@
                             <div class="book-badge">Бестселлер</div>
                         }
                         <div class="book-image">
-                            <!-- Просто путь из БД -->
                             <img src="@book.ImageUrl" alt="@book.Title">
                         </div>
                         <div class="book-info">
@@ -44,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="book-actions">
-                                <a href="/Home/Product/@book.Id" class="btn btn-outline">Подробнее</a>
+                                <a href="/Home/Product/@book.Id" class="btn btn-outline mb-2">Подробнее</a>
                                 <button onclick="addToCart(@book.Id)" class="btn btn-primary">В корзину</button>
                             </div>
                         </div>
@@ -57,6 +56,6 @@
 
 <script>
     function addToCart(bookId) {
-        alert('Книга #' + bookId + ' добавлена в корзину (демо)');
+        showNotification('Книга #' + bookId + ' добавлена в корзину (демо)', 'success');
     }
 </script>

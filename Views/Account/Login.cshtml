@@ -221,7 +221,6 @@ else
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Валидация совпадения паролей при регистрации
             const passwordInput = document.getElementById('Password');
             const confirmPasswordInput = document.getElementById('ConfirmPassword');
 
@@ -250,12 +249,9 @@ else
 
                 passwordInput.addEventListener('input', validatePasswordMatch);
                 confirmPasswordInput.addEventListener('input', validatePasswordMatch);
-
-                // Проверяем при загрузке страницы
                 validatePasswordMatch();
             }
 
-            // Обработка отправки формы регистрации
             const registerForm = document.querySelector('form[action="/Account/Register"]');
             if (registerForm) {
                 registerForm.addEventListener('submit', function (e) {

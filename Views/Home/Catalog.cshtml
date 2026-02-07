@@ -6,9 +6,9 @@
 
     <div class="content-wrapper">
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-            <h1>Каталог книг</h1>
-            <div class="search-container mt-2 mt-md-0">
-                <div class="input-group" style="max-width: 400px;">
+            <h1 class="mb-3 mb-md-0">Каталог книг</h1>
+            <div class="search-container">
+                <div class="input-group">
                     <input type="text" class="form-control" placeholder="Поиск по названию или автору..." id="searchInput">
                     <button class="btn btn-primary" onclick="searchBooks()">
                         <i class="fas fa-search"></i> Найти
@@ -67,7 +67,7 @@
         {
             <div class="text-center py-5">
                 <h3>Книги не найдены</h3>
-                <p class="text-matted">Попробуйте изменить параметры поиска</p>
+                <p class="text-muted">Попробуйте изменить параметры поиска</p>
                 <a href="/Home/Catalog" class="btn btn-primary">Показать все книги</a>
             </div>
         }

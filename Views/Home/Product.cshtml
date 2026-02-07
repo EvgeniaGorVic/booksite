@@ -69,7 +69,7 @@
                 <div class="book-price h2 text-primary mb-4">@Model.Price ₽</div>
 
                 <div class="d-flex flex-column" style="max-width: 300px;">
-                    <a href="/Home/Catalog" class="btn btn-outline btn-lg mb-2">
+                    <a href="/Home/Catalog" class="btn btn-primary btn-lg mb-2">
                         <i class="fas fa-arrow-left me-2"></i>Назад в каталог
                     </a>
                     <button onclick="addToCart(@Model.Id)" class="btn btn-primary btn-lg">
@@ -83,7 +83,7 @@
     {
         <div class="text-center py-5">
             <h3>Книга не найдена</h3>
-            <p class="text-matted">Запрашиваемая книга не существует</p>
+            <p class="text-muted">Запрашиваемая книга не существует</p>
             <a href="/Home/Catalog" class="btn btn-primary">Перейти в каталог</a>
         </div>
     }
@@ -93,4 +93,4 @@
     function addToCart(bookId) {
         showNotification('Книга #' + bookId + ' добавлена в корзину (демо)', 'success');
     }
-</script></script>
+</script>
