@@ -314,6 +314,9 @@ main {
     opacity: 0;
     transform: translateY(20px);
     border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
     .book-card:nth-child(1) {
@@ -358,8 +361,6 @@ main {
     box-shadow: var(--shadow-md);
 }
 
-/* Уменьшенные картинки книг */
-/* Увеличенные картинки книг */
 .book-image {
     height: 220px;
     overflow: hidden;
@@ -393,6 +394,7 @@ main {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    min-height: 3rem;
 }
 
 .book-author {
@@ -410,6 +412,7 @@ main {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    margin-top: auto;
 }
 
 .book-price {
@@ -429,7 +432,7 @@ main {
     font-size: 1rem;
 }
 
-/* ===== BUTTONS В КАРТОЧКАХ ===== */
+/* ===== КНОПКИ В КАРТОЧКАХ ===== */
 .book-actions {
     display: flex;
     flex-direction: column;
@@ -1535,69 +1538,68 @@ footer {
 /* ===== СТИЛИ ДЛЯ ПОИСКА В КАТАЛОГЕ ===== */
 .catalog-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
 }
 
 .catalog-title {
-    margin: 0;
-    flex: 1;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
 }
 
 .catalog-search {
     display: flex;
-    justify-content: flex-end;
-    min-width: 300px;
+    justify-content: center;
+    width: 100%;
 }
 
     .catalog-search .input-group {
-        width: 320px;
+        width: 100%;
+        max-width: 600px;
     }
 
     .catalog-search .form-control {
-        width: 200px;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
     }
 
     .catalog-search .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
         white-space: nowrap;
-    }
-
-/* ===== СТИЛИ ДЛЯ КНОПОК В КАРТОЧКАХ ===== */
-.book-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: auto;
-}
-
-    .book-actions .btn {
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem;
-        font-size: 0.9rem;
     }
 
 /* ===== АДАПТИВНОСТЬ КАТАЛОГА ===== */
 @media (max-width: 768px) {
-    .catalog-header {
+    .catalog-search .input-group {
+        max-width: 500px;
+    }
+
+    .catalog-search .form-control {
+        padding: 0.9rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .catalog-search .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .catalog-search .input-group {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 0.5rem;
     }
 
-    .catalog-search {
-        justify-content: flex-start;
+    .catalog-search .form-control {
         width: 100%;
-        margin-top: 1rem;
-        min-width: auto;
+        border-radius: var(--radius-lg);
     }
 
-        .catalog-search .input-group {
-            width: 100%;
-        }
-
-        .catalog-search .form-control {
-            width: 100%;
-        }
+    .catalog-search .btn {
+        width: 100%;
+        border-radius: var(--radius-lg);
+    }
 }
