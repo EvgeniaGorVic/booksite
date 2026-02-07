@@ -8,7 +8,6 @@
     @if (Model != null)
     {
         <div class="row">
-            <!-- Изображение книги -->
             <div class="col-md-4">
                 <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
@@ -32,7 +31,6 @@
                 }
             </div>
 
-            <!-- Информация о книге -->
             <div class="col-md-8">
                 <h1 class="mb-3">@Model.Title</h1>
                 <h4 class="text-muted mb-4">@Model.Author</h4>
