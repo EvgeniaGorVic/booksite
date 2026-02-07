@@ -9,10 +9,11 @@
     {
         <div class="row">
             <div class="col-md-4">
-                <div class="book-detail-image mb-4">
+                <div class="mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
-                         class="img-fluid rounded shadow-lg"
+                         class="img-fluid rounded"
+                         style="width: 100%; max-height: 300px; object-fit: contain;"
                          onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
                 </div>
 
