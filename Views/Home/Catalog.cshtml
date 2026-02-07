@@ -1,110 +1,110 @@
 ﻿@using booksite.Models
 @model List<Book>
-@{
-    ViewData["Title"] = "Каталог книг";
-}
+    @{
+        ViewData["Title"] = "Каталог книг";
+    }
 
-<div class="content-wrapper">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Каталог книг</h1>
-        <div class="d-flex gap-2" style="width: 50%; justify-content: flex-end;">
-            <div class="input-group" style="max-width: 400px;">
-                <input type="text" class="form-control" placeholder="Поиск по названию или автору..." id="searchInput">
-                <button class="btn btn-primary" onclick="searchBooks()">
-                    <i class="fas fa-search"></i> Найти
-                </button>
+    <div class="content-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <h1>Каталог книг</h1>
+            <div class="search-container mt-2 mt-md-0">
+                <div class="input-group" style="max-width: 400px;">
+                    <input type="text" class="form-control" placeholder="Поиск по названию или автору..." id="searchInput">
+                    <button class="btn btn-primary" onclick="searchBooks()">
+                        <i class="fas fa-search"></i> Найти
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    @if (Model != null && Model.Count > 0)
-    {
-        <p class="text-muted mb-4">Найдено книг: @Model.Count</p>
+        @if (Model != null && Model.Count > 0)
+        {
+            <p class="text-muted mb-4">Найдено книг: @Model.Count</p>
 
-        <div class="books-grid">
-            @foreach (var book in Model)
-            {
-                <div class="book-card">
-                    @if (book.IsBestseller)
-                    {
-                        <div class="book-badge">Бестселлер</div>
-                    }
-                    else if (book.IsFeatured)
-                    {
-                        <div class="book-badge">Рекомендуем</div>
-                    }
+            <div class="books-grid">
+                @foreach (var book in Model)
+                {
+                    <div class="book-card">
+                        @if (book.IsBestseller)
+                        {
+                            <div class="book-badge">Бестселлер</div>
+                        }
+                        else if (book.IsFeatured)
+                        {
+                            <div class="book-badge">Рекомендуем</div>
+                        }
 
-                    <div class="book-image">
-                        <img src="@book.ImageUrl" alt="@book.Title">
-                    </div>
+                        <div class="book-image">
+                            <img src="@book.ImageUrl" alt="@book.Title">
+                        </div>
 
-                    <div class="book-info">
-                        <h3 class="book-title">@book.Title</h3>
-                        <p class="book-author">@book.Author</p>
-                        <p class="book-category text-muted small">@book.Category</p>
+                        <div class="book-info">
+                            <h3 class="book-title">@book.Title</h3>
+                            <p class="book-author">@book.Author</p>
+                            <p class="book-category text-muted small">@book.Category</p>
 
-                        <div class="book-meta">
-                            <div class="book-price">@book.Price ₽</div>
-                            <div class="book-rating">
-                                @for (int i = 0; i < 5; i++)
-                                {
-                                    <span class="star">@(i < (int)book.Rating ? "★" : "☆")</span>
-                                }
-                                <span class="rating-value small">@book.Rating.ToString("0.0")</span>
+                            <div class="book-meta">
+                                <div class="book-price">@book.Price ₽</div>
+                                <div class="book-rating">
+                                    @for (int i = 0; i < 5; i++)
+                                    {
+                                        <span class="star">@(i < (int)book.Rating ? "★" : "☆")</span>
+                                    }
+                                    <span class="rating-value small">@book.Rating.ToString("0.0")</span>
+                                </div>
+                            </div>
+
+                            <div class="book-actions">
+                                <a href="/Home/Product/@book.Id" class="btn btn-outline mb-2">Подробнее</a>
+                                <button onclick="addToCart(@book.Id)" class="btn btn-primary">В корзину</button>
                             </div>
                         </div>
-
-                        <div class="book-actions">
-                            <a href="/Home/Product/@book.Id" class="btn btn-outline">Подробнее</a>
-                            <button onclick="addToCart(@book.Id)" class="btn btn-primary">В корзину</button>
-                        </div>
                     </div>
-                </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <h3>Книги не найдены</h3>
+                <p class="text-matted">Попробуйте изменить параметры поиска</p>
+                <a href="/Home/Catalog" class="btn btn-primary">Показать все книги</a>
+            </div>
+        }
+    </div>
+
+    <script>
+        function addToCart(bookId) {
+            showNotification('В демо-режиме добавление в корзину временно недоступно', 'info');
+        }
+
+        function searchBooks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const bookCards = document.querySelectorAll('.book-card');
+            let visibleCount = 0;
+
+            bookCards.forEach(card => {
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+                const author = card.querySelector('.book-author').textContent.toLowerCase();
+                const category = card.querySelector('.book-category').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || author.includes(searchTerm) || category.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const counter = document.querySelector('.text-muted.mb-4');
+            if (counter) {
+                counter.textContent = `Найдено книг: ${visibleCount}`;
             }
-        </div>
-    }
-    else
-    {
-        <div class="text-center py-5">
-            <h3>Книги не найдены</h3>
-            <p class="text-muted">Попробуйте изменить параметры поиска</p>
-            <a href="/Home/Catalog" class="btn btn-primary">Показать все книги</a>
-        </div>
-    }
-</div>
+        }
 
-<script>
-    function addToCart(bookId) {
-        showNotification('В демо-режиме добавление в корзину временно недоступно', 'info');
-    }
-
-    function searchBooks() {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const bookCards = document.querySelectorAll('.book-card');
-        let visibleCount = 0;
-
-        bookCards.forEach(card => {
-            const title = card.querySelector('.book-title').textContent.toLowerCase();
-            const author = card.querySelector('.book-author').textContent.toLowerCase();
-            const category = card.querySelector('.book-category').textContent.toLowerCase();
-
-            if (title.includes(searchTerm) || author.includes(searchTerm) || category.includes(searchTerm)) {
-                card.style.display = 'block';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
+        document.getElementById('searchInput').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                searchBooks();
             }
         });
-
-        const counter = document.querySelector('.text-muted.mb-4');
-        if (counter) {
-            counter.textContent = `Найдено книг: ${visibleCount}`;
-        }
-    }
-
-    document.getElementById('searchInput').addEventListener('keyup', function(e) {
-        if (e.key === 'Enter') {
-            searchBooks();
-        }
-    });
-</script>
+    </script>

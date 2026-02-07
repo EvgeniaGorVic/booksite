@@ -1637,4 +1637,136 @@ footer {
             text-align: center;
         }
     }
+    /* Добавьте в конец файла style.css */
+
+    /* Стили для страницы авторизации */
+    .auth-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        padding: 2rem;
+    }
+
+    .auth-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: 1000px;
+        background: white;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-2xl);
+        animation: slideUp 0.8s ease;
+        min-height: 600px;
+    }
+
+    .auth-left {
+        background: var(--gradient-primary);
+        padding: 3rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 30s linear infinite;
+        }
+
+    .auth-right {
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .auth-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    .auth-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .features-list {
+        list-style: none;
+        position: relative;
+        z-index: 1;
+    }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+            .features-list li::before {
+                content: '✓';
+                color: var(--success-color);
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+
+    /* Улучшенные стили для поиска в каталоге */
+    .search-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        min-width: 300px;
+    }
+
+    @media (max-width: 768px) {
+        .search-container {
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .d-flex.justify-content-between.align-items-center.flex-wrap {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .auth-wrapper {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        .auth-left {
+            min-height: 300px;
+            padding: 2rem;
+        }
+    }
+
+    /* Стили для кнопок в карточке товара */
+    .book-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+        .book-actions .btn {
+            width: 100%;
+            text-align: center;
+        }
 }

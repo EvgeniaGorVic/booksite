@@ -13,8 +13,7 @@
     <title>@ViewData["Title"] - BookSite</title>
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <!-- Добавь эту строку для шрифта форм -->
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -32,10 +31,6 @@
                 <a href="/Home/Catalog" class="nav-link">
                     <i class="fas fa-book"></i>
                     <span>Каталог</span>
-                </a>
-                <a href="/Home/Contacts" class="nav-link">
-                    <i class="fas fa-address-book"></i>
-                    <span>Контакты</span>
                 </a>
 
                 <div class="user-menu">
@@ -92,7 +87,6 @@
                 <ul class="footer-links">
                     <li><a href="/">Главная</a></li>
                     <li><a href="/Home/Catalog">Каталог</a></li>
-                    <li><a href="/Home/Contacts">Контакты</a></li>
                     <li><a href="/Account/Login">Вход / Регистрация</a></li>
                 </ul>
             </div>
@@ -122,11 +116,11 @@
 
     <script>
         // Инициализация dropdown
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
             dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
+                toggle.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     const dropdown = this.closest('.dropdown');
@@ -135,7 +129,7 @@
             });
 
             // Закрытие dropdown при клике вне
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!e.target.closest('.dropdown')) {
                     document.querySelectorAll('.dropdown').forEach(dropdown => {
                         dropdown.classList.remove('show');
@@ -170,11 +164,11 @@
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
             notification.innerHTML = `
-                <span>${message}</span>
-                <button onclick="this.parentElement.remove()" style="background: none; border: none; cursor: pointer;">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.remove()" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
 
             container.appendChild(notification);
 

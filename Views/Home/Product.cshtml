@@ -11,7 +11,6 @@
             <!-- Изображение книги -->
             <div class="col-md-4">
                 <div class="book-detail-image mb-4">
-                    <!-- ВАЖНО: Используем Url.Content -->
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
                          class="img-fluid rounded shadow-lg"
@@ -44,18 +43,54 @@
                     <p class="lead">@Model.Description</p>
                 </div>
 
+                <div class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Год издания</span>
+                                <span class="meta-value">@Model.Year</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Страниц</span>
+                                <span class="meta-value">@Model.Pages</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Категория</span>
+                                <span class="meta-value">@Model.Category</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="book-price h2 text-primary mb-4">@Model.Price ₽</div>
 
-                <button onclick="addToCart(@Model.Id)" class="btn btn-primary btn-lg">
-                    <i class="fas fa-shopping-cart me-2"></i>Добавить в корзину
-                </button>
+                <div class="d-flex flex-column" style="max-width: 300px;">
+                    <a href="/Home/Catalog" class="btn btn-outline btn-lg mb-2">
+                        <i class="fas fa-arrow-left me-2"></i>Назад в каталог
+                    </a>
+                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart me-2"></i>Добавить в корзину
+                    </button>
+                </div>
             </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center py-5">
+            <h3>Книга не найдена</h3>
+            <p class="text-matted">Запрашиваемая книга не существует</p>
+            <a href="/Home/Catalog" class="btn btn-primary">Перейти в каталог</a>
         </div>
     }
 </div>
 
 <script>
     function addToCart(bookId) {
-        alert('Книга #' + bookId + ' добавлена в корзину (демо)');
+        showNotification('Книга #' + bookId + ' добавлена в корзину (демо)', 'success');
     }
-</script>
+</script></script>

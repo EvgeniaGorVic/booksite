@@ -50,22 +50,10 @@ namespace booksite.Controllers
             return View(book);
         }
 
-        public IActionResult Contacts()
-        {
-            return View();
-        }
-
         public async Task<IActionResult> Catalog()
         {
             var books = await _context.Books.ToListAsync();
             return View(books);
-        }
-
-        [HttpPost]
-        public IActionResult SendContactMessage(string name, string email, string message)
-        {
-            TempData["Success"] = "Сообщение отправлено! Мы свяжемся с вами в ближайшее время.";
-            return RedirectToAction("Contacts");
         }
 
         public IActionResult Error()
