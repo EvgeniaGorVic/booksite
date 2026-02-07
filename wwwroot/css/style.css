@@ -2240,15 +2240,6 @@ footer {
             color: white !important;
         }
 
-            .features-list li::before {
-                content: '•';
-                color: white;
-                font-weight: 900;
-                font-size: 1.8rem;
-                line-height: 1;
-                min-width: 1.5rem;
-            }
-
     .auth-right {
         padding: 3rem;
         display: flex;
@@ -2276,7 +2267,7 @@ footer {
     }
 
         .catalog-search .input-group {
-            width: 400px;
+            width: 200px;
         }
 
     /* ===== СТИЛИ ДЛЯ КАРТОЧЕК КНИГ ===== */
