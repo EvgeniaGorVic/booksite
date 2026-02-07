@@ -5,9 +5,9 @@
     }
 
     <div class="content-wrapper">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-            <h1 class="mb-3 mb-md-0">Каталог книг</h1>
-            <div class="search-container">
+        <div class="catalog-header">
+            <h1 class="catalog-title">Каталог книг</h1>
+            <div class="catalog-search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Поиск по названию или автору..." id="searchInput">
                     <button class="btn btn-primary" onclick="searchBooks()">
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="book-actions">
-                                <a href="/Home/Product/@book.Id" class="btn btn-outline mb-2">Подробнее</a>
+                                <a href="/Home/Product/@book.Id" class="btn btn-outline">Подробнее</a>
                                 <button onclick="addToCart(@book.Id)" class="btn btn-primary">В корзину</button>
                             </div>
                         </div>
