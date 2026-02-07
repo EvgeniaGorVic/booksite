@@ -1602,4 +1602,184 @@ footer {
         width: 100%;
         border-radius: var(--radius-lg);
     }
+    /* Стили для поиска в каталоге */
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .catalog-title {
+        margin: 0;
+        flex: 1;
+    }
+
+    .catalog-search {
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+        .catalog-search .input-group {
+            width: 400px;
+        }
+
+            .catalog-search .input-group .form-control {
+                border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+                border-right: none;
+            }
+
+            .catalog-search .input-group .btn {
+                border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+                padding: 0.75rem 1.5rem;
+            }
+
+    /* Стили для описания книги на странице товара */
+    .book-description {
+        background: var(--gray-100);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        border-left: 4px solid var(--primary-color);
+    }
+
+        .book-description h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+    .description-content {
+        line-height: 1.7;
+        font-size: 1.05rem;
+        color: var(--gray-700);
+    }
+
+        .description-content br {
+            margin-bottom: 0.5rem;
+            display: block;
+            content: "";
+        }
+
+    /* Стили для деталей книги */
+    .book-details {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        border: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .detail-item {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .detail-label {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .detail-value {
+        font-weight: 600;
+        color: var(--dark-color);
+        font-size: 1.1rem;
+    }
+
+    /* Стили для рейтинга */
+    .book-rating-detail {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        border: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .rating-stars {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+        .rating-stars .star {
+            font-size: 1.5rem;
+            color: var(--gray-300);
+        }
+
+            .rating-stars .star.filled {
+                color: #ffd700;
+            }
+
+    .rating-number {
+        margin-left: 0.75rem;
+        font-weight: 600;
+        color: var(--dark-color);
+    }
+
+    /* Стили для цены */
+    .book-price-display {
+        background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(58, 86, 212, 0.1));
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .price-label {
+        font-size: 1rem;
+        color: var(--gray-600);
+        margin-bottom: 0.5rem;
+    }
+
+    .price-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+    }
+
+    /* Стили для кнопок на странице товара */
+    .book-actions-detail {
+        margin-top: 2rem;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .catalog-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .catalog-search {
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+            .catalog-search .input-group {
+                width: 100%;
+            }
+
+        .book-description,
+        .book-details,
+        .book-rating-detail,
+        .book-price-display {
+            padding: 1rem;
+        }
+
+        .price-value {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+
+        .book-description h4,
+        .price-label {
+            font-size: 0.9rem;
+        }
+    }
 }
