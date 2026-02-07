@@ -2455,7 +2455,7 @@ footer {
     }
 
     .form-control {
-        width: 100%;
+        width: 25%;
         padding: 0.75rem 1rem;
         border: 2px solid var(--gray-300);
         border-radius: var(--radius-lg);
