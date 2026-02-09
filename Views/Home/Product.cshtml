@@ -9,11 +9,12 @@
     {
         <div class="row">
             <!-- МАЛЕНЬКАЯ КАРТИНКА -->
-            <div class="col-md-4">
-                <div class="book-detail-image mb-4 text-center">
+            <div class="col-md-4 text-center">
+                <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
-                         class="img-fluid rounded shadow-lg"
+                         style="width: 150px; height: 200px; object-fit: cover;"
+                         class="rounded shadow-lg"
                          onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
                 </div>
 
