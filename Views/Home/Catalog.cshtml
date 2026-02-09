@@ -8,18 +8,11 @@
         <div class="catalog-header">
             <h1 class="catalog-title">Каталог книг</h1>
             <div class="catalog-search">
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text"
-                               class="search-input"
-                               placeholder="Поиск по названию или автору..."
-                               id="searchInput">
-                        <button class="search-btn" onclick="searchBooks()">
-                            <span>Найти</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Поиск по названию или автору..." id="searchInput">
+                    <button class="btn btn-primary" onclick="searchBooks()">
+                        <i class="fas fa-search"></i> Найти
+                    </button>
                 </div>
             </div>
         </div>

@@ -7,18 +7,19 @@
 <div class="content-wrapper">
     @if (Model != null)
     {
-        <div class="book-detail-container">
-            <!-- ФИКСИРОВАННАЯ КАРТИНКА 200x280px -->
-            <div class="book-detail-image-wrapper">
-                <div class="book-detail-image">
+        <div class="row">
+            <!-- МАЛЕНЬКАЯ КАРТИНКА -->
+            <div class="col-md-4">
+                <div class="book-detail-image mb-4 text-center">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
+                         class="img-fluid rounded shadow-lg"
                          onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
                 </div>
 
                 @if (Model.IsBestseller || Model.IsFeatured)
                 {
-                    <div class="book-badges">
+                    <div class="d-flex gap-2 mb-4 justify-content-center">
                         @if (Model.IsBestseller)
                         {
                             <span class="badge bg-danger">Бестселлер</span>
@@ -32,50 +33,46 @@
             </div>
 
             <!-- Информация о книге -->
-            <div class="book-detail-info">
-                <h1 class="mb-2">@Model.Title</h1>
+            <div class="col-md-8">
+                <h1 class="mb-3">@Model.Title</h1>
                 <h4 class="text-muted mb-4">@Model.Author</h4>
 
-                <!-- БЛОК ОПИСАНИЯ С ЦВЕТНЫМ ФОНОМ -->
-                <div class="book-description-block">
+                <!-- БЛОК ОПИСАНИЯ -->
+                <div class="mb-4 p-4 bg-primary text-white rounded">
                     <h4>Описание книги</h4>
-                    <p>@Model.Description</p>
+                    <p class="mb-0">@Model.Description</p>
                 </div>
 
-                <!-- Мета-информация -->
-                <div class="book-meta-info">
-                    <div class="meta-item">
-                        <span class="meta-label">Год издания</span>
-                        <span class="meta-value">@Model.Year</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Страниц</span>
-                        <span class="meta-value">@Model.Pages</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Категория</span>
-                        <span class="meta-value">@Model.Category</span>
-                    </div>
-                </div>
-
-                <!-- Цена и рейтинг -->
-                <div class="book-price-rating">
-                    <div class="book-price">@Model.Price ₽</div>
-                    <div class="book-rating">
-                        @for (int i = 0; i < 5; i++)
-                        {
-                            <span class="star">@(i < (int)Model.Rating ? "★" : "☆")</span>
-                        }
-                        <span class="rating-value">@Model.Rating.ToString("0.0")</span>
+                <div class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Год издания</span>
+                                <span class="meta-value">@Model.Year</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Страниц</span>
+                                <span class="meta-value">@Model.Pages</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="meta-item">
+                                <span class="meta-label">Категория</span>
+                                <span class="meta-value">@Model.Category</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Кнопки -->
-                <div class="book-detail-actions">
-                    <a href="/Home/Catalog" class="btn btn-primary">
+                <div class="book-price h2 text-primary mb-4">@Model.Price ₽</div>
+
+                <div class="d-flex flex-column" style="max-width: 300px;">
+                    <a href="/Home/Catalog" class="btn btn-primary btn-lg mb-2">
                         <i class="fas fa-arrow-left me-2"></i>Назад в каталог
                     </a>
-                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary">
+                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary btn-lg">
                         <i class="fas fa-shopping-cart me-2"></i>Добавить в корзину
                     </button>
                 </div>
