@@ -8,12 +8,12 @@
     @if (Model != null)
     {
         <div class="row">
-            <!-- Маленькая картинка -->
+            <!-- УВЕЛИЧЕННАЯ КАРТИНКА -->
             <div class="col-md-4 text-center">
                 <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
-                         style="width: 150px; height: 200px; object-fit: cover;"
+                         style="width: 220px; height: 300px; object-fit: cover;"
                          class="rounded shadow-lg"
                          onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
                 </div>
@@ -39,9 +39,9 @@
                 <h4 class="text-muted mb-4">@Model.Author</h4>
 
                 <!-- БЛОК ОПИСАНИЯ С БЕЛЫМ ТЕКСТОМ -->
-                <div class="mb-4 p-4 bg-primary text-white rounded">
-                    <h4 class="text-white">Описание книги</h4>
-                    <p class="mb-0 text-white">@Model.Description</p>
+                <div class="mb-4 p-4 bg-primary rounded" style="background: var(--gradient-primary) !important;">
+                    <h4 class="text-white mb-3">Описание книги</h4>
+                    <p class="mb-0 text-white" style="font-size: 1.1rem; line-height: 1.6;">@Model.Description</p>
                 </div>
 
                 <div class="mb-4">
