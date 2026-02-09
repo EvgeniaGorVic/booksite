@@ -9,17 +9,17 @@
             <!-- Заголовок по центру -->
             <h1 class="text-center mb-4">Каталог книг</h1>
 
-            <!-- Поиск по центру с кнопкой ПРИЖАТОЙ СПРАВА -->
+            <!-- Поиск по центру -->
             <div class="d-flex justify-content-center mb-4">
-                <div class="d-flex align-items-center" style="width: 600px; background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 2px solid var(--gray-300);">
+                <div class="d-flex align-items-center" style="width: 600px; gap: 0; border-radius: var(--radius-lg); overflow: hidden;">
                     <input type="text"
-                           class="form-control border-0"
+                           class="form-control border-0 shadow-sm"
                            placeholder="Поиск по названию или автору..."
                            id="searchInput"
-                           style="flex: 1; height: 50px; font-size: 1.1rem; padding: 0 1rem;">
-                    <button class="btn btn-primary border-0"
+                           style="flex: 1; height: 50px; font-size: 1.1rem; padding: 0 1rem; border-radius: var(--radius-lg) 0 0 var(--radius-lg);">
+                    <button class="btn btn-primary border-0 shadow-sm"
                             onclick="searchBooks()"
-                            style="height: 50px; border-radius: 0; padding: 0 1.5rem; white-space: nowrap;">
+                            style="height: 50px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 0 1.5rem; white-space: nowrap;">
                         <i class="fas fa-search me-2"></i>Найти
                     </button>
                 </div>
