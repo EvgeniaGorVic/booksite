@@ -1738,4 +1738,251 @@ footer {
         border-radius: var(--radius-lg);
         width: 100%;
     }
+    /* ===== СТИЛИ ДЛЯ ПОИСКА С КНОПКОЙ СПРАВА ===== */
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .catalog-title {
+        margin: 0;
+        flex: 1;
+    }
+
+    .catalog-search {
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    .search-wrapper {
+        display: flex;
+        width: 500px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--gray-300);
+        border-right: none;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color var(--transition-base);
+        background: var(--gray-100);
+    }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            background: white;
+        }
+
+    .search-btn {
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+    /* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ТОВАРА ===== */
+    .book-detail-container {
+        display: flex;
+        gap: 3rem;
+    }
+
+    .book-detail-image {
+        flex: 0 0 250px; /* ФИКСИРОВАННАЯ ШИРИНА */
+    }
+
+        .book-detail-image img {
+            width: 100%;
+            max-width: 200px; /* УМЕНЬШЕНА ДО 200px */
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+    .book-detail-info {
+        flex: 1;
+    }
+
+    /* БЛОК С ОПИСАНИЕМ КНИГИ */
+    .book-description-block {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 1.5rem;
+        border-radius: var(--radius-xl);
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-lg);
+    }
+
+        .book-description-block h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .book-description-block p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+    /* МЕТА-ИНФОРМАЦИЯ */
+    .book-meta-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        background: var(--gray-100);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1.5rem 0;
+    }
+
+    .meta-item {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .meta-label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--gray-600);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .meta-value {
+        display: block;
+        font-weight: 700;
+        color: var(--dark-color);
+        font-size: 1.1rem;
+    }
+
+    /* КНОПКИ НА СТРАНИЦЕ ТОВАРА */
+    .book-detail-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        max-width: 300px;
+    }
+
+        .book-detail-actions .btn {
+            width: 100%;
+            text-align: center;
+            padding: 0.9rem;
+            font-size: 1rem;
+        }
+
+    /* БЭДЖИ */
+    .book-badges {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    /* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 992px) {
+        .book-detail-container {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .book-detail-image {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+
+            .book-detail-image img {
+                max-width: 180px;
+            }
+
+        .book-meta-info {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .search-wrapper {
+            width: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .catalog-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .catalog-search {
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .search-wrapper {
+            width: 100%;
+        }
+
+        .book-meta-info {
+            grid-template-columns: 1fr;
+        }
+
+        .book-description-block {
+            padding: 1.2rem;
+        }
+
+        .book-detail-actions {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .book-detail-image img {
+            max-width: 150px;
+        }
+
+        .search-input {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .search-btn {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
 }

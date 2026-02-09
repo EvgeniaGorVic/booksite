@@ -8,7 +8,7 @@
     @if (Model != null)
     {
         <div class="book-detail-container">
-            <!-- Изображение книги (УМЕНЬШЕНО) -->
+            <!-- Изображение книги (УМЕНЬШЕНО ДО 200px) -->
             <div class="book-detail-image">
                 <img src="@Url.Content(Model.ImageUrl)"
                      alt="@Model.Title"
@@ -16,14 +16,14 @@
 
                 @if (Model.IsBestseller || Model.IsFeatured)
                 {
-                    <div class="book-badges mt-3">
+                    <div class="book-badges">
                         @if (Model.IsBestseller)
                         {
-                            <span class="badge bg-danger px-3 py-2">Бестселлер</span>
+                            <span class="badge bg-danger">Бестселлер</span>
                         }
                         @if (Model.IsFeatured)
                         {
-                            <span class="badge bg-primary px-3 py-2">Рекомендуем</span>
+                            <span class="badge bg-primary">Рекомендуем</span>
                         }
                     </div>
                 }
