@@ -8,11 +8,13 @@
     @if (Model != null)
     {
         <div class="book-detail-container">
-            <!-- Изображение книги (УМЕНЬШЕНО ДО 200px) -->
-            <div class="book-detail-image">
-                <img src="@Url.Content(Model.ImageUrl)"
-                     alt="@Model.Title"
-                     onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
+            <!-- ФИКСИРОВАННАЯ КАРТИНКА 200x280px -->
+            <div class="book-detail-image-wrapper">
+                <div class="book-detail-image">
+                    <img src="@Url.Content(Model.ImageUrl)"
+                         alt="@Model.Title"
+                         onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
+                </div>
 
                 @if (Model.IsBestseller || Model.IsFeatured)
                 {
@@ -57,14 +59,14 @@
                 </div>
 
                 <!-- Цена и рейтинг -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div class="book-price h2 text-primary mb-0">@Model.Price ₽</div>
+                <div class="book-price-rating">
+                    <div class="book-price">@Model.Price ₽</div>
                     <div class="book-rating">
                         @for (int i = 0; i < 5; i++)
                         {
-                            <span class="star fs-4">@(i < (int)Model.Rating ? "★" : "☆")</span>
+                            <span class="star">@(i < (int)Model.Rating ? "★" : "☆")</span>
                         }
-                        <span class="rating-value ms-2 fs-5">@Model.Rating.ToString("0.0")</span>
+                        <span class="rating-value">@Model.Rating.ToString("0.0")</span>
                     </div>
                 </div>
 

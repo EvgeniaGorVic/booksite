@@ -1985,4 +1985,384 @@ footer {
             font-size: 0.9rem;
         }
     }
+    /* ===== СТИЛИЗОВАННЫЙ ПОИСК ===== */
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .catalog-title {
+        margin: 0;
+        flex: 1;
+    }
+
+    .catalog-search {
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    .search-container {
+        width: 500px;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: 0.25rem;
+        box-shadow: var(--shadow-lg);
+        border: 2px solid var(--gray-200);
+        transition: all var(--transition-base);
+        overflow: hidden;
+    }
+
+        .search-box:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+    .search-icon {
+        color: var(--gray-500);
+        font-size: 1.1rem;
+        padding: 0 1rem;
+        flex-shrink: 0;
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 0.9rem 0.5rem;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        color: var(--dark-color);
+        background: transparent;
+        min-width: 0;
+    }
+
+        .search-input::placeholder {
+            color: var(--gray-400);
+        }
+
+    .search-btn {
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        padding: 0.85rem 1.5rem;
+        border-radius: var(--radius-lg);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        margin-left: 0.25rem;
+        flex-shrink: 0;
+    }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+    /* ===== ФИКСИРОВАННЫЙ РАЗМЕР КАРТИНКИ В ТОВАРЕ ===== */
+    .book-detail-container {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+    }
+
+    .book-detail-image-wrapper {
+        flex: 0 0 220px; /* ФИКСИРОВАННАЯ ШИРИНА */
+        position: sticky;
+        top: 100px;
+    }
+
+    .book-detail-image {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+        .book-detail-image img {
+            width: 200px; /* ФИКСИРОВАННЫЙ РАЗМЕР */
+            height: 280px; /* ФИКСИРОВАННЫЙ РАЗМЕР */
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+            border: 3px solid white;
+        }
+
+    .book-detail-info {
+        flex: 1;
+    }
+
+    /* УЛУЧШЕННЫЙ БЛОК ОПИСАНИЯ */
+    .book-description-block {
+        background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
+        color: white;
+        padding: 1.8rem;
+        border-radius: var(--radius-xl);
+        margin: 2rem 0;
+        box-shadow: var(--shadow-xl);
+        border-left: 5px solid var(--secondary-color);
+    }
+
+        .book-description-block h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+            .book-description-block h4::before {
+                content: "📖";
+                font-size: 1.2em;
+            }
+
+        .book-description-block p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+    /* УЛУЧШЕННАЯ МЕТА-ИНФОРМАЦИЯ */
+    .book-meta-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1.8rem;
+        border-radius: var(--radius-xl);
+        margin: 2rem 0;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .meta-item {
+        text-align: center;
+        padding: 1rem;
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-base);
+    }
+
+        .meta-item:hover {
+            transform: translateY(-5px);
+        }
+
+    .meta-label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--gray-600);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .meta-value {
+        display: block;
+        font-weight: 700;
+        color: var(--dark-color);
+        font-size: 1.2rem;
+    }
+
+    /* СТИЛИЗОВАННЫЕ КНОПКИ */
+    .book-detail-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-top: 2.5rem;
+        max-width: 320px;
+    }
+
+        .book-detail-actions .btn {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.05rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            transition: all var(--transition-base);
+        }
+
+            .book-detail-actions .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-lg);
+            }
+
+    /* УЛУЧШЕННЫЕ БЭДЖИ */
+    .book-badges {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+
+    .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .bg-danger {
+        background: linear-gradient(135deg, #f72585 0%, #b5179e 100%) !important;
+    }
+
+    .bg-primary {
+        background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%) !important;
+    }
+
+    /* ЦЕНА И РЕЙТИНГ */
+    .book-price-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        margin: 1.5rem 0;
+    }
+
+    .book-price {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .star {
+        color: #ffd700;
+        font-size: 1.4rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .rating-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin-left: 0.5rem;
+    }
+
+    /* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 992px) {
+        .book-detail-container {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .book-detail-image-wrapper {
+            flex: 0 0 auto;
+            position: static;
+            width: 100%;
+            text-align: center;
+        }
+
+        .book-detail-image img {
+            width: 180px;
+            height: 250px;
+        }
+
+        .book-meta-info {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .search-container {
+            width: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .catalog-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .catalog-search {
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .search-container {
+            width: 100%;
+        }
+
+        .search-box {
+            width: 100%;
+        }
+
+        .book-meta-info {
+            grid-template-columns: 1fr;
+        }
+
+        .book-description-block {
+            padding: 1.5rem;
+        }
+
+        .book-detail-actions {
+            max-width: 100%;
+        }
+
+        .book-price-rating {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .book-detail-image img {
+            width: 160px;
+            height: 220px;
+        }
+
+        .search-input {
+            padding: 0.8rem 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .search-btn {
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .book-price {
+            font-size: 1.8rem;
+        }
+    }
 }
