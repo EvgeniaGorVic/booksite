@@ -8,7 +8,7 @@
     @if (Model != null)
     {
         <div class="row">
-            <!-- МАЛЕНЬКАЯ КАРТИНКА -->
+            <!-- Маленькая картинка -->
             <div class="col-md-4 text-center">
                 <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
@@ -38,10 +38,10 @@
                 <h1 class="mb-3">@Model.Title</h1>
                 <h4 class="text-muted mb-4">@Model.Author</h4>
 
-                <!-- БЛОК ОПИСАНИЯ -->
+                <!-- БЛОК ОПИСАНИЯ С БЕЛЫМ ТЕКСТОМ -->
                 <div class="mb-4 p-4 bg-primary text-white rounded">
-                    <h4>Описание книги</h4>
-                    <p class="mb-0">@Model.Description</p>
+                    <h4 class="text-white">Описание книги</h4>
+                    <p class="mb-0 text-white">@Model.Description</p>
                 </div>
 
                 <div class="mb-4">
