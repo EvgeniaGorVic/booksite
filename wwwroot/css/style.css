@@ -2401,4 +2401,88 @@ footer {
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);
     }
+    /* ===== ГОРИЗОНТАЛЬНОЕ ВЫРАВНИВАНИЕ КАРТОЧКИ ТОВАРА ===== */
+    .book-detail-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .book-detail-image-wrapper {
+        flex: 0 0 250px;
+    }
+
+    .book-detail-info {
+        flex: 1;
+    }
+
+    /* Мета-информация вертикально */
+    .book-meta-vertical {
+        margin: 2rem 0;
+    }
+
+        .book-meta-vertical .meta-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .book-meta-vertical .meta-label {
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .book-meta-vertical .meta-value {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+    /* Блок описания */
+    .book-description-block {
+        background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
+        padding: 1.8rem;
+        border-radius: var(--radius-xl);
+        margin: 1.5rem 0;
+    }
+
+        .book-description-block h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .book-description-block p {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+    /* Кнопки */
+    .book-detail-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        max-width: 320px;
+    }
+
+    /* Адаптивность для мобильных */
+    @media (max-width: 768px) {
+        .book-detail-container {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .book-detail-image-wrapper {
+            flex: 0 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .book-detail-actions {
+            max-width: 100%;
+        }
+    }
 }

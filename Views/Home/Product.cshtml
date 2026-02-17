@@ -7,9 +7,10 @@
 <div class="content-wrapper">
     @if (Model != null)
     {
-        <div class="row">
-            <!-- УВЕЛИЧЕННАЯ КАРТИНКА -->
-            <div class="col-md-4 text-center">
+        <!-- ГЛАВНЫЙ КОНТЕЙНЕР С FLEX -->
+        <div class="book-detail-container">
+            <!-- БЛОК С КАРТИНКОЙ -->
+            <div class="book-detail-image-wrapper">
                 <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
@@ -20,7 +21,7 @@
 
                 @if (Model.IsBestseller || Model.IsFeatured)
                 {
-                    <div class="d-flex gap-2 mb-4 justify-content-center">
+                    <div class="book-badges">
                         @if (Model.IsBestseller)
                         {
                             <span class="badge bg-danger">Бестселлер</span>
@@ -33,40 +34,41 @@
                 }
             </div>
 
-            <!-- Информация о книге -->
-            <div class="col-md-8">
+            <!-- БЛОК С ОПИСАНИЕМ -->
+            <div class="book-detail-info">
                 <h1 class="mb-3">@Model.Title</h1>
                 <h4 class="text-muted mb-4">@Model.Author</h4>
 
-                <!-- БЛОК ОПИСАНИЯ С БЕЛЫМ ТЕКСТОМ -->
-                <div class="mb-4 p-4 rounded" style="background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);">
-                    <h4 class="mb-3" style="color: white !important; font-weight: 600;">Описание книги</h4>
-                    <p class="mb-0" style="color: white !important; font-size: 1.1rem; line-height: 1.6;">@Model.Description</p>
+                <!-- БЛОК ОПИСАНИЯ -->
+                <div class="book-description-block">
+                    <h4 class="text-white">Описание книги</h4>
+                    <p class="text-white">@Model.Description</p>
                 </div>
 
-                <!-- МЕТА-ИНФОРМАЦИЯ ВЕРТИКАЛЬНО ПО ЛЕВОМУ КРАЮ -->
-                <div class="mb-4">
-                    <div class="mb-3">
-                        <div style="font-weight: 600; color: var(--gray-700); margin-bottom: 0.25rem;">Год издания:</div>
-                        <div style="font-size: 1.2rem; font-weight: 500; color: var(--dark-color);">@Model.Year</div>
+                <!-- МЕТА-ИНФОРМАЦИЯ ВЕРТИКАЛЬНО -->
+                <div class="book-meta-vertical">
+                    <div class="meta-item">
+                        <span class="meta-label">Год издания:</span>
+                        <span class="meta-value">@Model.Year</span>
                     </div>
-                    <div class="mb-3">
-                        <div style="font-weight: 600; color: var(--gray-700); margin-bottom: 0.25rem;">Страниц:</div>
-                        <div style="font-size: 1.2rem; font-weight: 500; color: var(--dark-color);">@Model.Pages</div>
+                    <div class="meta-item">
+                        <span class="meta-label">Страниц:</span>
+                        <span class="meta-value">@Model.Pages</span>
                     </div>
-                    <div class="mb-3">
-                        <div style="font-weight: 600; color: var(--gray-700); margin-bottom: 0.25rem;">Категория:</div>
-                        <div style="font-size: 1.2rem; font-weight: 500; color: var(--dark-color);">@Model.Category</div>
+                    <div class="meta-item">
+                        <span class="meta-label">Категория:</span>
+                        <span class="meta-value">@Model.Category</span>
                     </div>
                 </div>
 
                 <div class="book-price h2 text-primary mb-4">@Model.Price ₽</div>
 
-                <div class="d-flex flex-column" style="max-width: 300px;">
-                    <a href="/Home/Catalog" class="btn btn-primary btn-lg mb-2">
+                <!-- КНОПКИ -->
+                <div class="book-detail-actions">
+                    <a href="/Home/Catalog" class="btn btn-primary">
                         <i class="fas fa-arrow-left me-2"></i>Назад в каталог
                     </a>
-                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary btn-lg">
+                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary">
                         <i class="fas fa-shopping-cart me-2"></i>Добавить в корзину
                     </button>
                 </div>
