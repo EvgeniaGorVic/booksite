@@ -7,9 +7,9 @@
 <div class="content-wrapper">
     @if (Model != null)
     {
-        <!-- ГЛАВНЫЙ КОНТЕЙНЕР С FLEX -->
+        <!-- ГОРИЗОНТАЛЬНЫЙ КОНТЕЙНЕР С FLEX -->
         <div class="book-detail-container">
-            <!-- БЛОК С КАРТИНКОЙ -->
+            <!-- БЛОК С КАРТИНКОЙ (СЛЕВА) -->
             <div class="book-detail-image-wrapper">
                 <div class="book-detail-image mb-4">
                     <img src="@Url.Content(Model.ImageUrl)"
@@ -34,18 +34,18 @@
                 }
             </div>
 
-            <!-- БЛОК С ОПИСАНИЕМ -->
+            <!-- БЛОК С ОПИСАНИЕМ (СПРАВА) -->
             <div class="book-detail-info">
                 <h1 class="mb-3">@Model.Title</h1>
                 <h4 class="text-muted mb-4">@Model.Author</h4>
 
-                <!-- БЛОК ОПИСАНИЯ -->
+                <!-- БЛОК ОПИСАНИЯ С БЕЛЫМ ТЕКСТОМ -->
                 <div class="book-description-block">
                     <h4 class="text-white">Описание книги</h4>
                     <p class="text-white">@Model.Description</p>
                 </div>
 
-                <!-- МЕТА-ИНФОРМАЦИЯ ВЕРТИКАЛЬНО -->
+                <!-- МЕТА-ИНФОРМАЦИЯ ВЫРОВНЕНА СЛЕВА И ВЕРТИКАЛЬНО -->
                 <div class="book-meta-vertical">
                     <div class="meta-item">
                         <span class="meta-label">Год издания:</span>
