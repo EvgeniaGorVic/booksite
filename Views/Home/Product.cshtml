@@ -45,36 +45,36 @@
                     <p style="color: white; margin: 0; font-size: 1.1rem; line-height: 1.6;">@Model.Description</p>
                 </div>
 
-                <!-- МЕТА-ИНФОРМАЦИЯ - ГАРАНТИРОВАННО СЛЕВА -->
+                <!-- МЕТА-ИНФОРМАЦИЯ - УМЕНЬШЕННЫЙ ШРИФТ -->
                 <div style="margin: 30px 0;">
                     <!-- Год издания -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Год издания</div>
-                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Year</div>
+                    <div style="margin-bottom: 16px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; text-align: left;">Год издания</div>
+                        <div style="font-size: 1.1rem; font-weight: 500; color: #212529; text-align: left;">@Model.Year</div>
                     </div>
 
                     <!-- Страниц -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Страниц</div>
-                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Pages</div>
+                    <div style="margin-bottom: 16px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; text-align: left;">Страниц</div>
+                        <div style="font-size: 1.1rem; font-weight: 500; color: #212529; text-align: left;">@Model.Pages</div>
                     </div>
 
                     <!-- Категория -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Категория</div>
-                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Category</div>
+                    <div style="margin-bottom: 16px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; text-align: left;">Категория</div>
+                        <div style="font-size: 1.1rem; font-weight: 500; color: #212529; text-align: left;">@Model.Category</div>
                     </div>
                 </div>
 
                 <!-- ЦЕНА -->
-                <div style="font-size: 2rem; font-weight: 800; color: #4361ee; margin: 20px 0;">@Model.Price ₽</div>
+                <div style="font-size: 2rem; font-weight: 800; color: #4361ee; margin: 20px 0 30px 0;">@Model.Price ₽</div>
 
                 <!-- КНОПКИ -->
                 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 320px;">
-                    <a href="/Home/Catalog" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s;">
+                    <a href="/Home/Catalog" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s;">
                         <i class="fas fa-arrow-left"></i> Назад в каталог
                     </a>
-                    <button onclick="addToCart(@Model.Id)" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s;">
+                    <button onclick="addToCart(@Model.Id)" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s;">
                         <i class="fas fa-shopping-cart"></i> Добавить в корзину
                     </button>
                 </div>
