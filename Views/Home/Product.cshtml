@@ -7,69 +7,75 @@
 <div class="content-wrapper">
     @if (Model != null)
     {
-        <!-- ГОРИЗОНТАЛЬНЫЙ КОНТЕЙНЕР С FLEX -->
-        <div class="book-detail-container">
-            <!-- БЛОК С КАРТИНКОЙ (СЛЕВА) -->
-            <div class="book-detail-image-wrapper">
-                <div class="book-detail-image mb-4">
+        <!-- ГОРИЗОНТАЛЬНЫЙ КОНТЕЙНЕР -->
+        <div style="display: flex; flex-direction: row; gap: 40px; align-items: flex-start;">
+
+            <!-- КАРТИНКА СЛЕВА -->
+            <div style="width: 250px; flex-shrink: 0;">
+                <div style="text-align: center; margin-bottom: 20px;">
                     <img src="@Url.Content(Model.ImageUrl)"
                          alt="@Model.Title"
-                         style="width: 220px; height: 300px; object-fit: cover;"
-                         class="rounded shadow-lg"
+                         style="width: 220px; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);"
                          onerror="this.onerror=null; this.src='@Url.Content("~/images/default-book.jpg")'">
                 </div>
 
                 @if (Model.IsBestseller || Model.IsFeatured)
                 {
-                    <div class="book-badges">
+                    <div style="display: flex; gap: 8px; justify-content: center;">
                         @if (Model.IsBestseller)
                         {
-                            <span class="badge bg-danger">Бестселлер</span>
+                            <span style="background: #f72585; color: white; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600;">Бестселлер</span>
                         }
                         @if (Model.IsFeatured)
                         {
-                            <span class="badge bg-primary">Рекомендуем</span>
+                            <span style="background: #4361ee; color: white; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600;">Рекомендуем</span>
                         }
                     </div>
                 }
             </div>
 
-            <!-- БЛОК С ОПИСАНИЕМ (СПРАВА) -->
-            <div class="book-detail-info">
-                <h1 class="mb-3">@Model.Title</h1>
-                <h4 class="text-muted mb-4">@Model.Author</h4>
+            <!-- ОПИСАНИЕ СПРАВА -->
+            <div style="flex: 1;">
+                <h1 style="margin: 0 0 10px 0; font-size: 2.5rem;">@Model.Title</h1>
+                <h4 style="margin: 0 0 20px 0; color: #6c757d;">@Model.Author</h4>
 
-                <!-- БЛОК ОПИСАНИЯ С БЕЛЫМ ТЕКСТОМ -->
-                <div class="book-description-block">
-                    <h4 class="text-white">Описание книги</h4>
-                    <p class="text-white">@Model.Description</p>
+                <!-- БЛОК ОПИСАНИЯ -->
+                <div style="background: linear-gradient(135deg, #4361ee, #3a56d4); padding: 24px; border-radius: 16px; margin: 20px 0;">
+                    <h4 style="color: white; margin: 0 0 12px 0; font-size: 1.3rem;">Описание книги</h4>
+                    <p style="color: white; margin: 0; font-size: 1.1rem; line-height: 1.6;">@Model.Description</p>
                 </div>
 
-                <!-- МЕТА-ИНФОРМАЦИЯ СТРОГО СЛЕВА -->
-                <div class="book-meta-left">
-                    <div class="meta-item">
-                        <div class="meta-label">Год издания</div>
-                        <div class="meta-value">@Model.Year</div>
+                <!-- МЕТА-ИНФОРМАЦИЯ - ГАРАНТИРОВАННО СЛЕВА -->
+                <div style="margin: 30px 0;">
+                    <!-- Год издания -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Год издания</div>
+                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Year</div>
                     </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Страниц</div>
-                        <div class="meta-value">@Model.Pages</div>
+
+                    <!-- Страниц -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Страниц</div>
+                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Pages</div>
                     </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Категория</div>
-                        <div class="meta-value">@Model.Category</div>
+
+                    <!-- Категория -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; color: #495057; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; text-align: left;">Категория</div>
+                        <div style="font-size: 1.5rem; font-weight: 500; color: #212529; text-align: left;">@Model.Category</div>
                     </div>
                 </div>
 
-                <div class="book-price h2 text-primary mb-4">@Model.Price ₽</div>
+                <!-- ЦЕНА -->
+                <div style="font-size: 2rem; font-weight: 800; color: #4361ee; margin: 20px 0;">@Model.Price ₽</div>
 
                 <!-- КНОПКИ -->
-                <div class="book-detail-actions">
-                    <a href="/Home/Catalog" class="btn btn-primary">
-                        <i class="fas fa-arrow-left me-2"></i>Назад в каталог
+                <div style="display: flex; flex-direction: column; gap: 12px; max-width: 320px;">
+                    <a href="/Home/Catalog" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s;">
+                        <i class="fas fa-arrow-left"></i> Назад в каталог
                     </a>
-                    <button onclick="addToCart(@Model.Id)" class="btn btn-primary">
-                        <i class="fas fa-shopping-cart me-2"></i>Добавить в корзину
+                    <button onclick="addToCart(@Model.Id)" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s;">
+                        <i class="fas fa-shopping-cart"></i> Добавить в корзину
                     </button>
                 </div>
             </div>
@@ -77,10 +83,10 @@
     }
     else
     {
-        <div class="text-center py-5">
+        <div style="text-align: center; padding: 60px 0;">
             <h3>Книга не найдена</h3>
-            <p class="text-muted">Запрашиваемая книга не существует</p>
-            <a href="/Home/Catalog" class="btn btn-primary">Перейти в каталог</a>
+            <p style="color: #6c757d;">Запрашиваемая книга не существует</p>
+            <a href="/Home/Catalog" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #4361ee, #3a56d4); color: white; text-decoration: none; border-radius: 12px; margin-top: 20px;">Перейти в каталог</a>
         </div>
     }
 </div>
