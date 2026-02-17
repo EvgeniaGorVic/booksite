@@ -2591,4 +2591,112 @@ footer {
             text-align: left;
         }
     }
+    /* ===== ГОРИЗОНТАЛЬНОЕ ВЫРАВНИВАНИЕ КАРТОЧКИ ТОВАРА ===== */
+    .book-detail-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .book-detail-image-wrapper {
+        flex: 0 0 250px;
+    }
+
+    .book-detail-info {
+        flex: 1;
+    }
+
+    /* ===== МЕТА-ИНФОРМАЦИЯ СТРОГО СЛЕВА ===== */
+    .book-meta-left {
+        margin: 2rem 0;
+        text-align: left;
+        width: 100%;
+    }
+
+        .book-meta-left .meta-item {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .book-meta-left .meta-label {
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+            text-align: left;
+        }
+
+        .book-meta-left .meta-value {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--dark-color);
+            text-align: left;
+        }
+
+    /* Блок описания */
+    .book-description-block {
+        background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
+        padding: 1.8rem;
+        border-radius: var(--radius-xl);
+        margin: 1.5rem 0;
+        text-align: left;
+    }
+
+        .book-description-block h4 {
+            color: white;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .book-description-block p {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+    /* Кнопки */
+    .book-detail-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        max-width: 320px;
+    }
+
+    /* Бэджи */
+    .book-badges {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: var(--radius-full);
+    }
+
+    /* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 768px) {
+        .book-detail-container {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .book-detail-image-wrapper {
+            flex: 0 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .book-detail-actions {
+            max-width: 100%;
+        }
+    }
 }
